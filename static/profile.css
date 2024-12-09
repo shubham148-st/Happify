@@ -1,0 +1,19 @@
+body {
+    background: linear-gradient(to right, #f8cdda, #1d2b64); /* Gradient background */
+    color: #333; /* Text color */
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background for the card */
+    border-radius: 15px; /* Rounded corners */
+}
+
+.card-title {
+    font-size: 1.5rem; /* Larger font size for the title */
+    font-weight: bold; /* Bold title */
+}
+
+.container {
+    max-width: 600px; /* Limit the width of the container */
+    margin: auto; /* Center the container */
+}

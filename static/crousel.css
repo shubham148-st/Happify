@@ -1,0 +1,52 @@
+.carousel-container {
+    margin-top: 20px;
+    width: 100%; /* Full width */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Elevation effect */
+    overflow: hidden; /* Ensure corners are rounded */
+    background-color: #f8f9fa; /* Light gray background color */
+}
+
+.carousel-inner img {
+    width: 100%; /* Make images responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 15px; /* Rounded corners for images */
+}
+
+.card {
+    border-radius: 15px; /* Rounded corners for cards */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+.card-body {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    text-align: center; /* Center content horizontally */
+}
+
+.btn {
+    border-radius: 20px; /* Rounded buttons */
+    transition: background-color 0.3s ease; /* Smooth transition for button hover */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.shortened-image {
+    width: 100px; /* Set desired width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 15px;
+}
+
+.user_name{
+    color: blue; font-weight: bold; font-size: 18px;
+}

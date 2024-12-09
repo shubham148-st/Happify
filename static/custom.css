@@ -1,0 +1,61 @@
+
+.container {
+  width: 100px;
+  margin: 2rem auto 0;
+}
+.moji {
+  font-size: 2rem; /* Adjust the emoji size */
+  text-align: center; /* Center the emoji */
+}
+
+.slider {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  justify-content: space-between; /* Space the labels evenly */
+  margin: 0.5rem 0; /* Add some margin */
+  width: 100%; /* Make the slider take full width */
+}
+
+#happiness {
+  width: 70%; /* Adjust the width of the slider */
+  margin: 0 10px; /* Add some margin around the slider */
+}
+
+input {
+  width: 100%;
+  margin: 0 10px;
+}
+
+.sad{
+  font-weight: bold;
+  color:tomato;
+}
+.happy {
+  color: #5fcf80;
+}
+
+.uploader{
+  display: none;
+}
+.file-upload {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Center the icon */
+  margin-bottom: 10px; /* Add some margin if needed */
+}
+
+.upload-icon {
+  color: bisque; /* Default color */
+  transition: color 0.3s; /* Smooth transition */
+  font-size: 2rem; /* Adjust the size of the icon */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: transform 0.2s; /* Add a transition for hover effect */
+}
+
+.upload-icon:hover {
+  transform: scale(1.1); /* Slightly enlarge the icon on hover */
+}
+
+.upload-icon.uploaded {
+  color: green; /* Color after upload */
+}
