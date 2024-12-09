@@ -1,0 +1,59 @@
+{% extends "index.html" %}
+{%block title%}
+My Journal
+{%endblock title%}
+{% load bootstrap_icons %}
+{% block CSS %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'two.css' %}" />
+{% endblock CSS %}
+{% block content %}
+
+<h1>Your Journal Entries</h1>
+<div class="container">
+    <div class="row">
+        {% for journal in journals %}
+            <div class="col-md-4 mb-4">
+                <div class="card" style="cursor: pointer;" data-toggle="collapse" data-target="#collapse{{ forloop.counter }}" aria-expanded="false" aria-controls="collapse{{ forloop.counter }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ journal.timestamp }} 
+                            <span class="happiness-emoji" data-happiness="{{ journal.happiness }}"></span>
+                        </h5>
+                        <p class="card-text">
+                            {{ journal.content|slice:":20" }}... 
+                        </p>
+                    </div>
+                    <div id="collapse{{ forloop.counter }}" class="collapse">
+                        <div class="card-body">
+                            <p>{{ journal.content }}</p> 
+                            {% if journal.img %}
+                                <img src="{{ journal.img.url }}" alt="Journal Image" class="img-fluid" />
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <div class="col-12">
+                <p>No journal entries yet. Add one now!</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="new-journal-btn">
+    <a href="{% url 'add_journal_entry' %}">{% bs_icon 'patch-plus-fill' size='4rem' %}</a>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var emojis = ['😡', '☹️', '😐', '🙂', '😄'];
+        document.querySelectorAll('.happiness-emoji').forEach(function(element) {
+            var happiness = parseInt(element.getAttribute('data-happiness'), 10);
+            if (happiness >= 1 && happiness <= 5) {
+                element.textContent = emojis[happiness - 1]; // Adjust for zero-based index
+            }
+        });
+    });
+</script>
+
+{% endblock content %}

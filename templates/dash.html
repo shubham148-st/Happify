@@ -1,0 +1,62 @@
+{% extends "navbar.html" %}
+{% block title%}
+Dashboard
+{% endblock title%}
+
+{% load bootstrap_icons %}
+{% block CSS %}
+{% load static %}
+<link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.css' rel='stylesheet' />
+
+<link rel="stylesheet" href="{% static 'custom.css' %}">
+<link rel="stylesheet" href="{% static 'two.css' %}">
+<link rel="stylesheet" href="{% static 'four.css' %}">
+
+{% endblock CSS %}
+{% block scripts %}
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.js'></script>
+{% endblock scripts%}
+
+{% block content %}
+{% if count_of_entries %}
+<div class="d-flex justify-content-center" style="min-height: 20vh; margin:3vh;">
+    <div class="card text-center" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">
+                {% bs_icon 'dot' color="green" size='2.45rem' %} Total entries: {{ count_of_entries }}
+            </h5>
+            <a href="/journal/" class="btn btn-primary">View Entries</a>
+        </div>
+    </div>
+</div>
+{% else %}
+    <p>You have not made any journal entries yet.</p>
+{% endif %}
+
+<!-- Graph Section -->
+<div class="card" style="width: 100%; max-width: 800px; margin: auto;">
+    <div class="card-body">
+        <h5 class="card-title">Histogram of Journal Entries</h5>
+        <div id="myDiv" style="height: 400px;"></div> <!-- Add this div for the Plotly graph -->
+    </div>
+</div>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script> <!-- Ensure Plotly is loaded -->
+<script>
+    var graphDates = {{ graph_dates|safe }};
+    var graphCounts = {{ graph_counts|safe }};
+
+    // Example of creating a Plotly graph
+    var trace1 = {
+        x: graphDates,
+        y: graphCounts,
+        type: 'bar'
+    };
+
+    var data = [trace1];
+
+    Plotly.newPlot('myDiv', data); // Render the graph in the div with id 'myDiv'
+
+</script>
+
+{% endblock content %}

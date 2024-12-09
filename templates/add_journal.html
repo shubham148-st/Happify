@@ -1,0 +1,123 @@
+{% extends "navbar.html" %}
+{%block title%}
+Add Journal
+{%endblock title%}
+{% load bootstrap_icons %}
+{% block CSS %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'custom.css' %}">
+<link rel="stylesheet" href="{% static 'two.css' %}">
+<style>
+    .upload-icon {
+        color: bisque; /* Default color */
+        transition: color 0.3s; /* Smooth transition */
+    }
+    .upload-icon.uploaded {
+        color: green; /* Color after upload */
+    }
+</style>
+{% endblock CSS %}
+
+{% block content %}
+
+<form method="POST" enctype="multipart/form-data" class="mb-3 mx-auto p-4 border-0 rounded" style="width: 550px; background-image: url('{% static 'image/grad_1.jpg' %}'); background-repeat: no-repeat; background-size: cover; background-position: center;">
+    {% csrf_token %}
+    
+
+    <label style="color: bisque;">Journal Entry:</label><br>
+    <textarea id="content" name="content" rows="5" cols="50" placeholder="Write your journal entry here..." required></textarea>
+    <br><br>
+    
+
+    <div class="container">
+        <label for="slider" style="display: block; color: bisque;">Moji meter:</label>
+        <div class="moji">😄</div>
+        <div class="slider">
+            <span class="sad">sad</span>
+            <input type="range" id="happiness" name="happiness" value="3" min="1" max="5" step="1">
+            <span class="happy">happy</span>
+        </div>
+    </div>
+
+    <div class="file-upload" >
+        <input type="file" class="uploader" id="img" name="img" accept="image/*" />
+        <label for="img" class="upload-icon" title="Upload Image">{% bs_icon 'images' size='1.5rem' %}</label>
+
+        <input type="file" class="uploader" id="camera" name="camera" accept="image/*" capture="environment" />
+        <label for="camera" class="upload-icon" title="Capture Image with Camera">{% bs_icon 'camera' size='1.5rem' %}</label>
+        
+        <input type="file" class="uploader" id="audio" name="audio" accept="audio/*" />
+        <label for="audio" class="upload-icon" title="Upload Audio">{% bs_icon 'mic-fill' size='1.5rem' %}</label>
+        
+        <input type="text" class="uploader" id="location" name="location" maxlength="50" placeholder="Enter location" />
+        <label for="location" class="upload-icon" title="Enter Location">{% bs_icon 'geo-alt-fill' size='1.5rem' %}</label>
+    
+        
+        <input type="file" class="uploader" id="additional" name="additional"   />
+        <label for="additional" class="upload-icon" title="Attach a File">{% bs_icon 'paperclip' size='1.5rem' %}</label>
+    </div>
+
+  
+    <div class="text-center">
+        <button class="btn btn-primary col-md-5" type="submit">Save Entry</button>
+    </div>
+</form>
+
+
+<script>
+    
+    const range = document.querySelector('#happiness'); 
+    const div = document.querySelector('.moji');
+    const mojis = ['😡', '☹️', '😐', '🙂', '😄'];
+
+    range.addEventListener('input', (e) => {
+        let rangeValue = e.target.value - 1;
+        div.textContent = mojis[rangeValue];
+    });
+
+    
+    const fileInputs = [
+        { inputId: 'img', iconClass: 'upload-icon' },
+        { inputId: 'audio', iconClass: 'upload-icon' },
+        { inputId: 'location', iconClass: 'upload-icon' },
+        { inputId: 'additional', iconClass: 'upload-icon' },
+    ];
+
+    fileInputs.forEach(({ inputId, iconClass }) => {
+        const input = document.getElementById(inputId);
+        const label = document.querySelector(`label[for="${inputId}"]`);
+
+       
+        input.addEventListener('change', () => {
+            if (input.files.length > 0) {
+                label.classList.add('uploaded');
+            } else {
+                label.classList.remove('uploaded'); 
+            }
+        });
+    });
+    document.getElementById('get-location').addEventListener('click', function() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+                    document.getElementById('location').value = `Lat: ${latitude}, Lon: ${longitude}`;
+                },
+                (error) => {
+                    console.error("Error getting location:", error);
+                    alert("Unable to retrieve your location. Please enter it manually.");
+                },
+                {
+                    enableHighAccuracy: true,
+                    timeout: 5000,
+                    maximumAge: 0,
+                }
+            );
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+{% endblock content %}

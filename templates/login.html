@@ -1,0 +1,141 @@
+{% extends "base.html" %} 
+
+
+{% block title %} Login {% endblock title %}
+
+
+{% block CSS %} 
+{% load static %} 
+<link rel="stylesheet" href="{% static 'one.css' %}" />
+{% endblock CSS %} 
+
+{% block body %} 
+
+<!-- form 1 <h1>login</h1> <form method="POST">
+  {% csrf_token %}
+  <input type="email" name="email" placeholder="Email" required />
+
+  <input type="text" name="username" placeholder="Username" required />
+  <br />
+
+  <input type="password" name="password" placeholder="Password" required />
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<div>{%for message in messages %} {{message}} {%endfor%}</div> -->
+<!-- form 2 <body class="my-login-page">
+  <section class="h-100">
+    <div class="container h-100">
+      <div class="row justify-content-md-center h-100">
+        <div class="card-wrapper">
+          <div class="brand">
+            {% comment %} <img src="img/logo.jpg" alt="logo" /> {% endcomment %}
+          </div>
+          <div class="card fat">
+            <div class="card-body">
+              <h4 class="card-title">Login</h4>
+              <form method="POST" class="my-login-validation" novalidate="">
+                {% csrf_token %}
+                <div class="form-group">
+                  <label for="username">Username</label>
+                  <input
+                    id="username"
+                    type="text"
+                    class="form-control"
+                    name="username"
+                    value=""
+                    required
+                    autofocus
+                  />
+                  <div class="invalid-feedback">username invalid</div>
+                </div>
+
+                <div class="form-group">
+                  <label for="password"
+                    >Password
+                    <a href="forgot.html" class="float-right">
+                      Forgot Password?
+                    </a>
+                  </label>
+                  <input
+                    id="password"
+                    type="password"
+                    class="form-control"
+                    name="password"
+                    required
+                    data-eye
+                  />
+                  <div class="invalid-feedback">Password is required</div>
+                </div>
+
+                <div class="form-group">
+                  <div class="custom-checkbox custom-control">
+                    <input
+                      type="checkbox"
+                      name="remember"
+                      id="remember"
+                      class="custom-control-input"
+                    />
+                    <label for="remember" class="custom-control-label"
+                      >Remember Me</label
+                    >
+                  </div>
+                </div>
+
+                <div class="form-group m-0">
+                  <button type="submit" class="btn btn-primary btn-block">
+                    Login
+                  </button>
+                </div>
+                <div class="mt-4 text-center">
+                  Don't have an account?
+                  <a href="/accounts/register/">Create One</a>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="footer">Copyright &copy; 2017 &mdash; Your Company</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body> -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <form method="POST" class="box"  novalidate="">
+          {% csrf_token %}
+          <h1>Login</h1>
+          <p class="text-muted">Please enter your login credentials</p>
+
+          <input id="username" type="text" class="form-control" name="username" value="" required autofocus placeholder="Userame"/>
+          <div class="invalid-feedback">username invalid</div>
+        
+          <input id="password" type="password" class="form-control" name="password" required  placeholder="Password" data-eye/>
+          
+          
+          <a class="forgot text-muted" href="#">Forgot password?</a>
+          
+          <div class="text-muted">
+            Don't have an account?
+            <a href="/accounts/register/">Create One</a>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">
+            Login
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %} 
+
+
+
+
+{% block scripts %} {% endblock scripts %}
+
+

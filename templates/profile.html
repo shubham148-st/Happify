@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+{% load static %}
+{% block CSS %}
+<link rel="stylesheet" href="{% static 'two.css' %}" />
+{% endblock CSS %}
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="card shadow-lg">
+        <div class="card-body">
+            <h5 class="card-title text-center">User  Information</h5>
+            <p><strong>First Name:</strong> {{ user.first_name }}</p>
+            <p><strong>Last Name:</strong> {{ user.last_name }}</p>
+            <p><strong>Username:</strong> {{ user.username }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

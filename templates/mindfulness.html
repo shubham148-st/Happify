@@ -1,0 +1,85 @@
+{% extends "index.html" %}
+{% load bootstrap_icons %}
+{% block CSS %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'two.css' %}" />
+<link rel="stylesheet" href="{% static 'mindful.css' %}" />
+{% endblock CSS %}
+{% block content %}
+
+<div class="card">
+    <h2>Three-Minute Breathing Space <a href = "https://www.youtube.com/watch?v=rOne1P0TKL8">{% bs_icon 'link-45deg' size='2rem' %}</a></h2>
+    <p>A quick exercise for busy days to enhance mindfulness and reduce stress.</p>
+    <ol>
+      <li>Set a timer for three minutes.</li>
+      <li>Sit comfortably and close your eyes if you wish. Notice your thoughts and feelings.</li>
+      <li>Focus on your breath, feeling the air flow in and out.</li>
+      <li>Expand your awareness to your whole body, noting sensations and posture.</li>
+    </ol>
+  </div>
+
+<div class="card">
+    <h2>Listening Mindfulness<a href = "https://music.youtube.com/playlist?list=RDCLAK5uy_l4IwIcgRUB8_0PPyLLBuIMmldGADJlZMc">{% bs_icon 'link-45deg' size='2rem' %}</a></h2>
+    <p>Engage deeply with the sounds around you to cultivate mindfulness.</p>
+    <ol>
+      <li>Close your eyes or softly gaze at a spot.</li>
+      <li>Identify a sound in your environment.</li>
+      <li>Listen deeply, noting its tone, rhythm, and volume.</li>
+      <li>If your mind wanders, acknowledge it and return to the sound.</li>
+    </ol>
+  </div>
+
+<div class="card">
+    <h2>Dishwashing Mindfulness<a href = "https://www.youtube.com/watch?v=Pwi1s_Z63yc">{% bs_icon 'link-45deg' size='2rem' %}</a></h2>
+    <p> A calming technique to reduce anxiety and enhance body awareness.</p>
+    <ol>
+      <li>As you wash dishes, pay attention to the sensations: water temperature, sponge texture, and smells.</li>
+      <li>If your mind drifts, gently bring it back to the task at hand.
+    </li>
+
+    </ol>
+  </div>
+
+<div class="card">
+    <h2>Body Scan<a href = "https://www.youtube.com/watch?v=dsmfIAyiois">{% bs_icon 'link-45deg' size='2rem' %}</a></h2>
+    <p> A calming technique to reduce anxiety and enhance body awareness.</p>
+    <ol>
+      <li>Close your eyes or maintain a soft gaze.</li>
+      <li>Focus on each part of your body, starting from your feet to your head.</li>
+      <li>Notice sensations without judgment, then return to your feet if desired.</li>
+    </ol>
+  </div>
+
+<div class="card">
+    <h2> Four-Seven-Eight Mindful Breathing<a href = "https://www.youtube.com/watch?v=j-1n3KJR1I8">{% bs_icon 'link-45deg' size='2rem' %}</a></h2>
+    <p> A deep breathing exercise to alleviate anxiety and improve sleep.</p>
+    <ol>
+      <li>Close your eyes or softly gaze at a spot.</li>
+      <li>Inhale for a count of four.</li>
+      <li>Hold for a count of seven.</li>
+      <li>Exhale for a count of eight, breathing deeply from your belly.</li>
+    </ol>
+  </div>
+
+<div class="card">
+    <h2>People-Watching<a href = "https://medium.com/storyangles/people-watching-observing-human-behavior-in-public-spaces-81a8c5aaba0e">{% bs_icon 'link-45deg' size='2rem' %}</a></h2>
+    <p>Observe others to detach from your thoughts and practice awareness.</p>
+    <ol>
+      <li>Notice the people around you.</li>
+      <li>Avoid forming judgments or stories about them.</li>
+      <li>Optionally, engage with others through a smile or greeting.</li>
+    </ol>
+  </div>
+
+<div class="card">
+    <h2> Group Drawing<a href = "https://www.youtube.com/watch?v=LiIGFvyv7vo">{% bs_icon 'link-45deg' size='2rem' %}</a></h2>
+    <p>A fun, nonjudgmental mindfulness activity for families.</p>
+    <ol>
+      <li>Gather drawing supplies and set a timer for one minute.</li>
+      <li>Start drawing something and pass the paper to the left when time’s up.</li>
+      <li>Continue passing and drawing until papers return to their owners, focusing on the process without judgment.</li>
+
+    </ol>
+  </div>
+
+{% endblock content %}
